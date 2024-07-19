@@ -8,7 +8,6 @@ class iqBirdDelegate extends WatchUi.BehaviorDelegate {
     }
 
     function onMenu() as Boolean {
-        WatchUi.pushView(new Rez.Menus.MainMenu(), new iqBirdMenuDelegate(), WatchUi.SLIDE_UP);
         return true;
     }
 

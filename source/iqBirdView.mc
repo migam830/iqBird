@@ -9,7 +9,6 @@ class iqBirdView extends WatchUi.View {
 
     // Load your resources here
     function onLayout(dc as Dc) as Void {
-        setLayout(Rez.Layouts.MainLayout(dc));
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -22,6 +21,9 @@ class iqBirdView extends WatchUi.View {
     function onUpdate(dc as Dc) as Void {
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
+        
+        dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_BLUE);
+        dc.drawCircle(dc.getWidth() / 2, dc.getHeight() / 2, dc.getWidth() / 4);
     }
 
     // Called when this View is removed from the screen. Save the
