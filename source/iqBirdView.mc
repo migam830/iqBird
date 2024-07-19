@@ -9,7 +9,7 @@ var birdHeight = 0;
 var birdXPos = 0;
 var birdAltitude = 0;
 var yVel = 0;
-var gravity = 0.5;
+var gravity = 0.8;
 var keyPressed = false;
 
 class iqBirdView extends WatchUi.View {
