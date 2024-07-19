@@ -1,11 +1,18 @@
 import Toybox.Graphics;
 import Toybox.WatchUi;
+import Toybox.Timer;
+
+
+// Yes, I'm using globals, deal with it
+var birdWidth = 0;
+var birdHeight = 0;
+var birdXPos = 0;
+var birdAltitude = 0;
 
 class iqBirdView extends WatchUi.View {
-    var birdWidth = 0;
-    var birdHeight = 0;
-    var birdXPos = 0;
-    var birdAltitude = 0;
+    function timerCallback() as Void  {
+        WatchUi.requestUpdate();
+    }
 
     function initialize() {
         View.initialize();
@@ -18,6 +25,9 @@ class iqBirdView extends WatchUi.View {
         birdHeight = dc.getHeight() / 10;
         birdXPos = dc.getWidth() / 2 - birdWidth * 3;
         birdAltitude = dc.getHeight() / 2 - birdHeight / 2;
+
+        var myTimer = new Timer.Timer();
+        myTimer.start(method(:timerCallback), 50, true);
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -35,6 +45,8 @@ class iqBirdView extends WatchUi.View {
         
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_DK_BLUE);
         dc.clear();
+
+
         // Yes, the bird is a rectangle for now
         dc.fillRectangle(birdXPos, birdAltitude, birdWidth, birdHeight);
     }

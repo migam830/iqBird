@@ -1,4 +1,3 @@
-import Toybox.Lang;
 import Toybox.WatchUi;
 
 class iqBirdDelegate extends WatchUi.BehaviorDelegate {
@@ -7,7 +6,9 @@ class iqBirdDelegate extends WatchUi.BehaviorDelegate {
         BehaviorDelegate.initialize();
     }
 
-    function onMenu() as Boolean {
+    // Hopefully works on all watch types
+    function onSelect(){
+        birdAltitude += 5;
         return true;
     }
 
