@@ -8,7 +8,7 @@ class iqBirdDelegate extends WatchUi.BehaviorDelegate {
 
     // Hopefully works on all watch types
     function onSelect(){
-        birdAltitude += 5;
+        keyPressed = true;
         return true;
     }
 

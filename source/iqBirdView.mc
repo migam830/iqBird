@@ -8,6 +8,9 @@ var birdWidth = 0;
 var birdHeight = 0;
 var birdXPos = 0;
 var birdAltitude = 0;
+var yVel = 0;
+var gravity = 0.5;
+var keyPressed = false;
 
 class iqBirdView extends WatchUi.View {
     function timerCallback() as Void  {
@@ -46,7 +49,13 @@ class iqBirdView extends WatchUi.View {
         dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_DK_BLUE);
         dc.clear();
 
-
+        // Gravity and stuff
+        yVel += gravity;
+        if (keyPressed) {
+            yVel = -10;
+            keyPressed = false;
+        }
+        birdAltitude += yVel;
         // Yes, the bird is a rectangle for now
         dc.fillRectangle(birdXPos, birdAltitude, birdWidth, birdHeight);
     }
